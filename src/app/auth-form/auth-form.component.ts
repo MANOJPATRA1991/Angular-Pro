@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, ContentChild, AfterContentInit } from '@angular/core';
+import { AuthRememberComponent } from './auth-remember/auth-remember.component';
 import { User } from './auth-form.interface';
 
 @Component({
@@ -6,13 +7,21 @@ import { User } from './auth-form.interface';
   templateUrl: './auth-form.component.html',
   styleUrls: ['./auth-form.component.css']
 })
-export class AuthFormComponent implements OnInit {
-  @Output() submitted: 
-  EventEmitter<User> = new EventEmitter<User>();
+export class AuthFormComponent implements AfterContentInit {
+  showMessage: boolean;
+
+  @ContentChild(AuthRememberComponent)
+  remember: AuthRememberComponent;
+
+  @Output() 
+  submitted: EventEmitter<User> = new EventEmitter<User>();
 
   constructor() { }
 
-  ngOnInit() {
+  ngAfterContentInit() {
+    if (this.remember) {
+      this.remember.checked.subscribe((checked: boolean) => this.showMessage = checked);
+    }
   }
 
   onSubmit(value: User) {
