@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent  {
-  name = 'Angular';
+  createUser(user: User) {
+    console.log("Create user:", user);
+  }
+
+  loginUser(user: User) {
+    console.log("Login:", user);
+  }
 }
