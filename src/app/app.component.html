@@ -1,11 +1,4 @@
 <div>
-  <app-auth-form 
-    (submitted)="createUser($event)">
-    <h3>Create Account</h3>
-    <button type="submit">
-      Join us
-    </button>
-  </app-auth-form>
   <app-auth-form (submitted)="loginUser($event)">
     <h3>Login</h3> 
     <app-auth-remember (checked)="rememberUser($event)"></app-auth-remember>
