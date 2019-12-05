@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { User } from './auth-form.interface';
 
 @Component({
   selector: 'app-auth-form',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./auth-form.component.css']
 })
 export class AuthFormComponent implements OnInit {
+  @Output() submitted: 
+  EventEmitter<User> = new EventEmitter<User>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSubmit(value: User) {
+    this.submitted.emit(value);
   }
 
 }
