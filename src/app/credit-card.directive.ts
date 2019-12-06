@@ -1,7 +1,8 @@
 import { 
   Directive, 
   ElementRef,
-  HostListener  
+  HostListener,
+  HostBinding
 } from '@angular/core';
 
 // We can't declare a template inside a directive
@@ -9,6 +10,9 @@ import {
   selector: '[appCreditCard]'
 })
 export class CreditCardDirective {
+  @HostBinding('style.border')
+  border: string;
+
   // The host is the element that we have bound the directive to
   @HostListener('input', ['$event'])
   onKeyDown(event: KeyboardEvent) {
@@ -27,6 +31,12 @@ export class CreditCardDirective {
     }
 
     input.value = numbers.join(' ');
+
+    this.border = '';
+
+    if (/[^\d]+/.test(trimmed)) {
+      this.border = '1px solid red';
+    }
   }
 
 }
