@@ -1,9 +1,10 @@
 <div>
-  <ng-container
-    [ngTemplateOutlet]="tmpl"
-    [ngTemplateOutletContext]="ctx">
-  </ng-container>
-  <ng-template #tmpl let-name let-location="location">
-    {{ name }}: {{ location }}
-  </ng-template>
+  <label>
+    Credit Card Number
+    <input
+      name="Credit Card"
+      type="text"
+      placeholder="Enter your 16-digit card number"
+      appCreditCard>
+  </label>
 </div>

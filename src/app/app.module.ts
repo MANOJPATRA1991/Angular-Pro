@@ -4,10 +4,11 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AuthFormModule } from './auth-form/auth-form.module';
+import { CreditCardDirective } from './credit-card.directive';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, AuthFormModule ],
-  declarations: [ AppComponent ],
+  declarations: [ AppComponent, CreditCardDirective ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
