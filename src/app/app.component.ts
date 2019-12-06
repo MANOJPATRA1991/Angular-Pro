@@ -27,6 +27,8 @@ export class AppComponent implements AfterContentInit {
     console.log(component.instance);
     // Access public properties of the component
     component.instance.title = "Create account";
+    // Access output of a dynamic component
+    component.instance.submitted.subscribe(this.loginUser);
   }
 
   loginUser(user: User) {
