@@ -1,6 +1,8 @@
 <div>
-  <div #entry></div>
-  <ng-template #tmpl let-name let-location="location">
-    {{ name }}: {{ location }}
+  <ng-container
+    [ngTemplateOutlet]="tmpl">
+  </ng-container>
+  <ng-template #tmpl>
+    Test
   </ng-template>
 </div>
