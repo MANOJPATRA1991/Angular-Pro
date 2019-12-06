@@ -19,6 +19,10 @@ import { AuthMessageComponent } from './auth-message/auth-message.component';
   exports: [
     AuthFormComponent,
     AuthRememberComponent
+  ],
+  // Dynamic components (not compiled at runtime)
+  entryComponents: [
+    AuthFormComponent
   ]
 })
 export class AuthFormModule {}
