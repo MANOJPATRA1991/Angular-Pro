@@ -25,8 +25,8 @@ export class AppComponent implements AfterContentInit {
   ngAfterContentInit() {
     // Creates a factory for our AuthFormComponent
     const authFormFactory = this.resolver.resolveComponentFactory(AuthFormComponent);
-    this.component = this.entry.createComponent(authFormFactory);
-    console.log(this.component.instance);
+    this.entry.createComponent(authFormFactory);
+    this.component = this.entry.createComponent(authFormFactory, 0);
     // Access public properties of the component
     this.component.instance.title = "Create account";
     // Access output of a dynamic component
@@ -39,5 +39,9 @@ export class AppComponent implements AfterContentInit {
 
   destroyComponent() {
     this.component.destroy();
+  }
+
+  moveComponent() {
+    this.entry.move(this.component.hostView, 1);
   }
 }
