@@ -16,6 +16,11 @@ import { User } from './auth-form/auth-form.interface';
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent implements AfterContentInit {
+  ctx = {
+    $implicit: 'Manoj',
+    location: 'India'
+  };
+
   constructor(
     private resolver: ComponentFactoryResolver
   ) { }
