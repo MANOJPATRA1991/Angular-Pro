@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AuthFormModule } from './auth-form/auth-form.module';
-import { CreditCardDirective } from './credit-card.directive';
+import { CreditCardDirective } from './credit-card/credit-card.directive';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, AuthFormModule ],
