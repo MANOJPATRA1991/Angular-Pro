@@ -2,6 +2,7 @@ import {
   Component, 
   OnInit
 } from '@angular/core';
+import { FileSizePipe } from './file-size/file-size.pipe';
 
 interface File {
   name: string,
@@ -12,12 +13,16 @@ interface File {
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',
-  styleUrls: [ './app.component.css' ]
+  styleUrls: [ './app.component.css' ],
+  providers: [FileSizePipe]
 })
 export class AppComponent {
   files: File[];
+  mapped: File[];
 
-  constructor() { }
+  constructor(
+    private fileSizePipe: FileSizePipe
+  ) { }
 
   ngOnInit() {
     this.files = [
@@ -37,5 +42,10 @@ export class AppComponent {
         type: 'image/png'
       }
     ];
+
+    this.mapped = this.files.map(file => ({
+      ...file,
+      size: this.fileSizePipe.transform(file.size, 'mb')
+    }));
   }
 }
