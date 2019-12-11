@@ -21,6 +21,19 @@ export class AppComponent implements AfterContentInit {
     location: 'India'
   };
 
+  items = [
+    {
+      name: 'Mark Hopus',
+      age: 44,
+      location: 'California'
+    },
+    {
+      name: 'Tom Delonge',
+      age: 44,
+      location: 'California'
+    }
+  ]
+
   constructor(
     private resolver: ComponentFactoryResolver
   ) { }

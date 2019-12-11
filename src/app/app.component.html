@@ -1,21 +1,12 @@
 <div>
-  <label>
-    Credit Card Number
-    <input
-      name="Credit Card"
-      type="text"
-      placeholder="Enter your 16-digit card number"
-      appCreditCard>
-  </label>
-  <label 
-    appTooltip="3 digits, back of your card"
-    #myTooltip="appTooltip">
-    Enter your security code
-    <span
-      (mouseover)="myTooltip.show()"
-      (mouseout)="myTooltip.hide()">
-      (?)
-    </span>
-    <input type="text">
-  </label>
+  <ul>
+    <li *appMyFor="let item of items; let i = index;">
+      {{ i }} Member: {{ item.name | json }}
+    </li>
+    <ng-template appMyFor [appMyForOf]="items" let-item let-i="index">
+      <li>
+        {{ i }} Member: {{ item.name | json }}
+      </li>
+    </ng-template>
+  </ul>
 </div>
