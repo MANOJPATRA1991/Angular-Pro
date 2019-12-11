@@ -7,6 +7,7 @@ import { AuthFormModule } from './auth-form/auth-form.module';
 import { CreditCardDirective } from './credit-card/credit-card.directive';
 import { TooltipDirective } from './tooltip/tooltip.directive';
 import { MyForDirective } from './my-for/my-for.directive';
+import { FileSizePipe } from './file-size/file-size.pipe';
 
 @NgModule({
   imports:      [ 
@@ -17,7 +18,9 @@ import { MyForDirective } from './my-for/my-for.directive';
   declarations: [ 
     AppComponent, 
     CreditCardDirective, 
-    TooltipDirective, MyForDirective 
+    TooltipDirective, 
+    MyForDirective, 
+    FileSizePipe 
   ],
   bootstrap:    [ AppComponent ]
 })

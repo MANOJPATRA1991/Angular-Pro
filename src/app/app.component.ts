@@ -1,47 +1,41 @@
 import { 
   Component, 
-  ViewChild,
-  ViewContainerRef,
-  ComponentRef,
-  ComponentFactoryResolver,
-  AfterContentInit,
-  TemplateRef
+  OnInit
 } from '@angular/core';
-import { AuthFormComponent } from './auth-form/auth-form.component';
-import { User } from './auth-form/auth-form.interface';
+
+interface File {
+  name: string,
+  size: number, 
+  type: string
+}
 
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',
   styleUrls: [ './app.component.css' ]
 })
-export class AppComponent implements AfterContentInit {
-  ctx = {
-    $implicit: 'Manoj',
-    location: 'India'
-  };
+export class AppComponent {
+  files: File[];
 
-  items = [
-    {
-      name: 'Mark Hopus',
-      age: 44,
-      location: 'California'
-    },
-    {
-      name: 'Tom Delonge',
-      age: 44,
-      location: 'California'
-    }
-  ]
+  constructor() { }
 
-  constructor(
-    private resolver: ComponentFactoryResolver
-  ) { }
-
-  ngAfterContentInit() {
-  }
-
-  loginUser(user: User) {
-    console.log("Login:", user);
+  ngOnInit() {
+    this.files = [
+      {
+        name: 'logo.svg',
+        size: 2120109,
+        type: 'image/svg'
+      },
+      {
+        name: 'banner.jpg',
+        size: 18029,
+        type: 'image/jpg'
+      },
+      {
+        name: 'background.png',
+        size: 1784562,
+        type: 'image/png'
+      }
+    ];
   }
 }
