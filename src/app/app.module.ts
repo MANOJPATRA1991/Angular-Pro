@@ -8,12 +8,14 @@ import { CreditCardDirective } from './credit-card/credit-card.directive';
 import { TooltipDirective } from './tooltip/tooltip.directive';
 import { MyForDirective } from './my-for/my-for.directive';
 import { FileSizePipe } from './file-size/file-size.pipe';
+import { StockInventoryModule } from './stock-inventory/stock-inventory.module';
 
 @NgModule({
   imports:      [ 
     BrowserModule, 
     FormsModule, 
-    AuthFormModule 
+    AuthFormModule,
+    StockInventoryModule
     ],
   declarations: [ 
     AppComponent, 
