@@ -10,10 +10,16 @@ export class StockInventoryComponent implements OnInit {
   form = new FormGroup({
     // FormGroup is to nicely wrap FormControls
     store: new FormGroup({
-      branch: new FormControl('B182'),
+      branch: new FormControl(''),
       // FormControl allows user to interact with it
-      code: new FormControl('1234')
-    })
+      code: new FormControl('')
+    }),
+    selector: new FormGroup({
+      product_id: new FormControl(''),
+      quantity: new FormControl(10)
+    }),
+    // array of FormControls or FormGroups
+    stock: new FormArray([])
   });
 
   constructor() { }
