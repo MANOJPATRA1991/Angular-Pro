@@ -13,7 +13,8 @@
     </app-stock-selector>
 
     <app-stock-products
-      [parent]="form">
+      [parent]="form"
+      (removed)="removeStock($event)">
     </app-stock-products>
 
     <div class="stock-inventory__buttons">
