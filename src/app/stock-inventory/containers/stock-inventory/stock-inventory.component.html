@@ -1,0 +1,33 @@
+<div class="stock-inventory">
+  <form 
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()">
+    <app-stock-branch
+      [parent]="form">
+    </app-stock-branch>
+
+    <app-stock-selector
+      [parent]="form"
+      [products]="products"
+      (added)="addStock($event)">
+    </app-stock-selector>
+
+    <app-stock-products
+      [parent]="form"
+      [map]="productMap"
+      (removed)="removeStock($event)">
+    </app-stock-products>
+
+    <div>Total: {{ total | currency }}</div>
+
+    <div class="stock-inventory__buttons">
+      <button 
+        type="submit"
+        [disabled]="form.invalid">
+        Order stock
+      </button>
+
+      <pre>{{ form.value | json }}</pre>
+    </div>
+  </form>
+</div>
