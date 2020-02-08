@@ -4,7 +4,7 @@ import { Mail } from '../../models/mail.interface';
 @Component({
   selector: 'app-mail-folder',
   templateUrl: './mail-folder.component.html',
-  styleUrls: ['./mail-folder.component.css']
+  styleUrls: ['./mail-folder.component.scss']
 })
 export class MailFolderComponent implements OnInit {
 
