@@ -27,6 +27,7 @@ export class InMemStockService implements InMemoryDbService {
           "folder": "inbox",
           "from": "Jane Smith",
           "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lobortis, neque at ultricies fringilla, ligula metus",
+          "full": "Full message from Jane Smith",
           "timestamp": 1487848162905
         },
         {
@@ -34,6 +35,7 @@ export class InMemStockService implements InMemoryDbService {
           "folder": "inbox",
           "from": "John Doe",
           "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lobortis, neque at ultricies fringilla, ligula metus",
+          "full": "Full message from John Doe",
           "timestamp": 1487845787719
         },
         {
@@ -41,6 +43,7 @@ export class InMemStockService implements InMemoryDbService {
           "folder": "inbox",
           "from": "Joseph Hanes",
           "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lobortis, neque at ultricies fringilla, ligula metus",
+          "full": "Full message from Joseph Hanes",
           "timestamp": 1487845787719
         },
         {
@@ -48,6 +51,7 @@ export class InMemStockService implements InMemoryDbService {
           "folder": "trash",
           "from": "Laurence Murray",
           "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lobortis, neque at ultricies fringilla, ligula metus",
+          "full": "Full message from Laurence Murray",
           "timestamp": 1487845787719
         }
       ]
