@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
 import { Mail } from '../../models/mail.interface';
 
 @Component({
@@ -12,20 +11,9 @@ export class MailItemComponent implements OnInit {
   @Input()
   message: Mail;
 
-  constructor(
-    private router: Router
-  ) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
-  navigateToMessage() {
-    this.router.navigate(
-      ['', {
-        outlets: {
-          pane: ['message', this.message.id] 
-        }
-      }]
-    );
-  }
 }
