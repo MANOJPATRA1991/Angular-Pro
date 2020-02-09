@@ -4,9 +4,28 @@
       type="text" 
       placeholder="Branch ID"
       formControlName="branch">
+      <div *ngIf="required('branch')">
+        Branch ID is required
+      </div>
+      <div
+        class="error"
+        *ngIf="invalid">
+        Invalid branch code: 1 letter, 3 numbers  
+      </div>
+      <div
+        class="error"
+        *ngIf="unknown">
+        Unknown branch, please check the ID
+      </div>
     <input 
       type="text" 
       placeholder="Manager Code"
       formControlName="code">
+<<<<<<< HEAD
+=======
+      <div *ngIf="required('code')">
+        Manager ID is required
+      </div>
+>>>>>>> 6264105f09b0ed623e4ef81d10dcb64c3d451b05
   </div>
 </div>
