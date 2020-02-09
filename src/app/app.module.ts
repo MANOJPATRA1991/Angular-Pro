@@ -13,17 +13,26 @@ import { StockInventoryModule } from './stock-inventory/stock-inventory.module';
 import { MailModule } from './mail/mail.module';
 
 export const ROUTES: Routes = [
-  { path: '**', redirectTo: 'folder/inbox' }
+  // LAZY LOADING DASHBOARD MODULE
+  {
+    path: 'dashboard',
+    loadChildren: './dashboard/dashboard.module#DashboardModule',
+
+  },
+  {
+    path: '**',
+    redirectTo: 'mail/folder/inbox'
+  }
 ];
 
 @NgModule({
   imports: [ 
     BrowserModule, 
+    HttpClientModule,
     FormsModule, 
     AuthFormModule,
     StockInventoryModule,
     MailModule,
-    HttpClientModule,
     RouterModule.forRoot(ROUTES)
   ],
   declarations: [ 
