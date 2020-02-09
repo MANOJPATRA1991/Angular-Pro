@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 import { Product } from '../../models/product.interface';
+import { Observable, forkJoin } from 'rxjs';
+import { StockInventoryService } from '../../services/stock-inventory.service';
 
 @Component({
   selector: 'app-stock-inventory',
@@ -25,17 +27,20 @@ export class StockInventoryComponent implements OnInit {
     }),
     selector: this.createStock({}),
     // array of FormControls or FormGroups
-    stock: this.fb.array([
-      this.createStock({ product_id: 1, quantity: 10 }),
-      this.createStock({ product_id: 3, quantity: 50 })
-    ])
+    stock: this.fb.array([])
   });
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private stockService: StockInventoryService
   ) { }
 
   ngOnInit() {
+    const cart = this.stockService.getCartItems();
+    const products = this.stockService.getProducts();
+
+    forkJoin(cart, products)
+    .subscribe(data => console.log(data));
   }
 
   onSubmit() {
