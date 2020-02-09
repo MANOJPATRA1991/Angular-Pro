@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AuthFormModule } from './auth-form/auth-form.module';
@@ -33,7 +33,9 @@ export const ROUTES: Routes = [
     AuthFormModule,
     StockInventoryModule,
     MailModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES, {
+      preloadingStrategy: PreloadAllModules
+    })
   ],
   declarations: [ 
     AppComponent, 
