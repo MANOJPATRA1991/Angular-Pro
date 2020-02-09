@@ -2,8 +2,9 @@ import {
   Component, 
   OnInit
 } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { FileSizePipe } from './file-size/file-size.pipe';
+import { filter } from 'rxjs/operators';
 
 interface File {
   name: string,
@@ -49,5 +50,18 @@ export class AppComponent {
       ...file,
       size: this.fileSizePipe.transform(file.size, 'mb')
     }));
+
+    // this.router.events
+    //   .subscribe(event => {
+    //     if (event instanceof NavigationEnd) {
+    //       console.log(event);
+    //     }
+    //   });
+    this.router.events
+      .pipe(
+        filter(event => event instanceof NavigationEnd)
+      ).subscribe(event => {
+        console.log(event);
+      });
   }
 }

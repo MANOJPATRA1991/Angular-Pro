@@ -24,8 +24,7 @@ export const ROUTES: Routes = [
     StockInventoryModule,
     MailModule,
     HttpClientModule,
-
-    RouterModule.forRoot(ROUTES, { enableTracing: true })
+    RouterModule.forRoot(ROUTES)
   ],
   declarations: [ 
     AppComponent, 
