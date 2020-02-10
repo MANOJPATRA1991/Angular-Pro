@@ -10,7 +10,8 @@ import { Mail } from '../../models/mail.interface';
   styleUrls: ['./mail-view.component.scss']
 })
 export class MailViewComponent implements OnInit {
-
+  reply = '';
+  hasUnsavedChanges = false;
   message: Observable<Mail> = this.route.data.pipe(pluck('message'));
 
   constructor(
@@ -18,6 +19,20 @@ export class MailViewComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.route.params.subscribe(() => {
+      this.reply = '';
+      this.hasUnsavedChanges = false;
+    });
+  }
+
+  updateReply(value: string) {
+    this.reply = value;
+    this.hasUnsavedChanges = true;
+  }
+
+  sendReply() {
+    console.log('Sent!', this.reply);
+    this.hasUnsavedChanges = false;
   }
 
 }
