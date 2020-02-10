@@ -12,8 +12,8 @@ import { MyForDirective } from './my-for/my-for.directive';
 import { FileSizePipe } from './file-size/file-size.pipe';
 import { StockInventoryModule } from './stock-inventory/stock-inventory.module';
 import { MailModule } from './mail/mail.module';
-import { AuthGuard } from './auth.guard';
-import { AuthModule } from './auth.module';
+import { AuthGuard } from './auth/auth.guard';
+import { AuthModule } from './auth/auth.module';
 
 export class CustomPreload implements PreloadingStrategy {
   preload(route: Route, fn: () => Observable<any>): Observable<any> {
