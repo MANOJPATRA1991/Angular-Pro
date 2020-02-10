@@ -6,7 +6,7 @@ export class AuthService {
 
   constructor() { }
 
-  user = { isAdmin: false };
+  user = { isAdmin: true };
 
   checkPermissions() {
     return of(this.user.isAdmin);
