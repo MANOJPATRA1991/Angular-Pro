@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { throwError, Observable } from 'rxjs';
-import { Item, Product } from '../../models/product.interface';
+import { Item, Product } from '../models/product.interface';
 
 @Injectable()
 export class StockInventoryService {

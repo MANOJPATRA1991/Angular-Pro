@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { map, catchError } from 'rxjs/operators';
-import { throwError, Observable } from 'rxjs';
+import { throwError, Observable, forkJoin } from 'rxjs';
 import { FormBuilder, FormGroup, FormArray, Validators, AbstractControl } from '@angular/forms';
 import { Product, Item } from '../../models/product.interface';
-import { Observable, forkJoin } from 'rxjs';
 import { StockInventoryService } from '../../services/stock-inventory.service';
 
 import { StockValidators } from './stock-inventory.validators';
