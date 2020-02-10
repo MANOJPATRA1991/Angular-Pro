@@ -8,11 +8,14 @@ import { MailViewResolve } from './components/mail-view/mail-view.resolve';
 import { MailFolderComponent } from './containers/mail-folder/mail-folder.component';
 import { MailFolderResolve } from './containers/mail-folder/mail-folder.resolve';
 import { MailService } from './mail.service';
+import { AuthGuard } from '../auth/auth.guard';
+import { AuthModule } from '../auth/auth.module';
 
 export const ROUTES: Routes = [
   {
     path: 'mail',
     component: MailAppComponent,
+    canActivate: [ AuthGuard ],
     children: [
       { 
         path: 'folder/:name',
@@ -36,6 +39,7 @@ export const ROUTES: Routes = [
 @NgModule({
   imports: [
     CommonModule,
+    AuthModule,
     RouterModule.forChild(ROUTES)
   ],
   declarations: [

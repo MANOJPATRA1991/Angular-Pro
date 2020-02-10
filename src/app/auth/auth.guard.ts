@@ -4,12 +4,16 @@ import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 
 @Injectable()
-export class AuthGuard implements CanLoad {
+export class AuthGuard implements CanLoad, CanActivate {
   constructor(
     private authService: AuthService
   ) {}
 
   canLoad() {
     return this.authService.checkPermissions();
+  }
+
+  canActivate() {
+    return this.authService.isLoggedIn();
   }
 }
