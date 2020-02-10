@@ -7,7 +7,7 @@ import { MailViewComponent } from './mail-view.component';
 export class MailViewGuard implements CanDeactivate<MailViewComponent> {
   canDeactivate(component: MailViewComponent) {
     if (component.hasUnsavedChanges) {
-      return window.confirm('Are you sure you want to leave?')
+      return window.confirm('Are you sure you want to leave?');
     }
     return true;
   }
