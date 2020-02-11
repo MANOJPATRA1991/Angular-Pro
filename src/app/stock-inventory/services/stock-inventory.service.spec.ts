@@ -5,9 +5,7 @@ import { Response, ResponseOptions } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
 
 function createResponse(body: any) {
-  return of(
-    new Response(new ResponseOptions({ body: JSON.stringify(body) }))
-  );
+  return of(body);
 }
 
 class MockHttp {
@@ -60,7 +58,7 @@ describe('StockInventoryService', () => {
     spyOn(http, 'get').and.returnValue(createResponse([...cartItems]));
     service.getCartItems()
       .subscribe((result) => {
-        const body = result.json();
+        const body = result;
         expect(body.length).toBe(2);
         expect(body).toEqual(cartItems);
       });
@@ -70,7 +68,7 @@ describe('StockInventoryService', () => {
     spyOn(http, 'get').and.returnValue(createResponse([...productItems]));
     service.getProducts()
       .subscribe((result) => {
-        const body = result.json();
+        const body = result;
         expect(body.length).toBe(2);
         expect(body).toEqual(productItems);
       });
