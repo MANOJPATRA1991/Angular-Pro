@@ -29,10 +29,9 @@ export class StockCounterComponent implements OnInit, ControlValueAccessor {
   value: number = 10;
 
   @Output() changed = new EventEmitter<number>();
+  focused: boolean;
 
   constructor() { }
-
-  
 
   registerOnChange(fn) {
     this.onModelChange = fn;
@@ -49,22 +48,47 @@ export class StockCounterComponent implements OnInit, ControlValueAccessor {
     if (this.value < this.max) {
       this.value += this.step;
       this.changed.emit(this.value);
-      this.onModelChange(this.value);
+      // this.onModelChange(this.value);
     }
-    this.onTouch();
+    // this.onTouch();
   }
 
   decrement() {
     if (this.value > this.min) {
       this.value -= this.step;
       this.changed.emit(this.value);
-      this.onModelChange(this.value);
+      // this.onModelChange(this.value);
     }
-    this.onTouch();
+    // this.onTouch();
   }
 
   writeValue(value) {
     this.value = value || 0;
+  }
+
+  private onBlur(event: FocusEvent) {
+    this.focused = false;
+    event.preventDefault();
+    event.stopPropagation();
+  }
+
+  private onKeyUp(event: KeyboardEvent) {
+    let handlers = {
+      ArrowDown: () => this.decrement(),
+      ArrowUp: () => this.increment()
+    };
+
+    if (handlers[event.code]) {
+      handlers[event.code]();
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  }
+
+  private onFocus(event: FocusEvent) {
+    this.focused = true;
+    event.preventDefault();
+    event.stopPropagation();
   }
 
 }
