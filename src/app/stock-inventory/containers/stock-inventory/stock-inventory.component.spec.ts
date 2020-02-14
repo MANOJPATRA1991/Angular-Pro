@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DebugElement } from '@angular/core';
+import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StockInventoryComponent } from './stock-inventory.component';
 import { StockBranchComponent } from '../../components/stock-branch/stock-branch.component';
@@ -45,12 +45,9 @@ describe('StockInventoryComponent', () => {
         ReactiveFormsModule
       ],
       declarations: [
-        StockInventoryComponent,
-        StockBranchComponent,
-        StockCounterComponent,
-        StockProductsComponent,
-        StockSelectorComponent
+        StockInventoryComponent
       ],
+      schemas: [ NO_ERRORS_SCHEMA ],
       providers: [
         {
           provide: StockInventoryService, useClass: MockStockInventoryService
