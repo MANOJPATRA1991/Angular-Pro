@@ -48,4 +48,11 @@ describe('StockCounterComponent', () => {
     }
     expect(component.value).toBe(1000);
   });
+
+  it('should call the output on a value change', () => {
+    spyOn(component.changed, "emit").and.callThrough();
+    component.step = 1000;
+    component.increment();
+    expect(component.changed.emit).toHaveBeenCalledWith(1000);
+  });
 });

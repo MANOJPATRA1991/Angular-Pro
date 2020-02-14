@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, forwardRef } from '@angular/core';
+import { Component, OnInit, Input, forwardRef, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 const COUNTER_CONTROL_ACCESSOR = {
@@ -12,6 +12,7 @@ const COUNTER_CONTROL_ACCESSOR = {
   selector: 'app-stock-counter',
   templateUrl: './stock-counter.component.html',
   styleUrls: ['./stock-counter.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     COUNTER_CONTROL_ACCESSOR
   ]
@@ -26,6 +27,8 @@ export class StockCounterComponent implements OnInit, ControlValueAccessor {
   private onModelChange: Function;
 
   value: number = 10;
+
+  @Output() changed = new EventEmitter<number>();
 
   constructor() { }
 
@@ -45,6 +48,7 @@ export class StockCounterComponent implements OnInit, ControlValueAccessor {
   increment() {
     if (this.value < this.max) {
       this.value += this.step;
+      this.changed.emit(this.value);
       this.onModelChange(this.value);
     }
     this.onTouch();
@@ -53,6 +57,7 @@ export class StockCounterComponent implements OnInit, ControlValueAccessor {
   decrement() {
     if (this.value > this.min) {
       this.value -= this.step;
+      this.changed.emit(this.value);
       this.onModelChange(this.value);
     }
     this.onTouch();
